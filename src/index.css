@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+*::-webkit-scrollbar{
+  display: none;
+}
+
+
+.navbar{
+  background-color: #060223;
+  top: 0;
+  z-index: 101;
+  height: 10vh;
+  position: fixed;
+  overflow: hidden;
+  color: white;
+}
+
+.navbar a{
+  border-radius: 40px;
+  padding: 15px;
+}
+
+.carousel{
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+
+button{
+  cursor: pointer;
+}
