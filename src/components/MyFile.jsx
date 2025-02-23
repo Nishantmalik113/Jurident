@@ -5,7 +5,7 @@ export default function MyFile() {
 
   const [bookmarks, setBookmarks] = useState([])
   return (
-    <section className='min-h-screen relative flex flex-col items-center justify-center bg-[#060223] text-white overflow-x-hidden'>
+    <section className='min-h-screen relative flex flex-col items-center justify-center bg-[#060223] text-white overflow-hidden'>
       <img src="../ellipse-top-right.png" className='absolute top-0 right-0 z-0' alt="" />
       <img src="../ellipse-left.png" className='absolute left-0' alt="" />
       <div className='w-full sm:px-20 flex items-center justify-between p-5'>
