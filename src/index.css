@@ -6,9 +6,9 @@
 
 
 .navbar{
-  background-color: #060223;
+  background-color: rgba(6, 2, 35, 0.6);
   top: 0;
-  z-index: 101;
+  z-index: 103;
   height: 10vh;
   position: fixed;
   overflow: hidden;
@@ -30,4 +30,10 @@
 
 button{
   cursor: pointer;
+}
+.file-section button{
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border-radius: 20px;
 }
