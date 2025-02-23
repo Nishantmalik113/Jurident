@@ -14,7 +14,7 @@ export default function MyFile() {
           <h1 className=' text-xl sm:text-3xl'>My Files</h1>
         </div>
         <div className='z-2'>
-          <search className='text-xl text-right w-[100px] sm:w-[150px] border-b-1 border-white'>search</search>
+          <input placeholder='search 🔎' className='text-xl text-right w-[100px] sm:w-[150px] border-b-1 border-white'></input>
         </div>
       </div>
       <div className='Files mx-10 sm:pt-10 p-5 rounded-[3rem] bg-[rgba(255,255,255,0.2)] flex flex-col items-center gap-5'>
