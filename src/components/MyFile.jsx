@@ -17,7 +17,7 @@ export default function MyFile() {
           <search className='text-xl text-right w-[100px] sm:w-[150px] border-b-1 border-white'>search</search>
         </div>
       </div>
-      <div className='Files mx-10 sm:px-10 p-5 rounded-[3rem] bg-[rgba(255,255,255,0.2)] flex flex-col items-center gap-5'>
+      <div className='Files mx-10 sm:pt-10 p-5 rounded-[3rem] bg-[rgba(255,255,255,0.2)] flex flex-col items-center gap-5'>
         <div className='sort-filter relative pb-4 w-full'>
           <div className='flex absolute right-0 gap-5'>
             <button><i className='fa-regular fa-bookmark text-blue-500'></i> Bookmarks</button>
