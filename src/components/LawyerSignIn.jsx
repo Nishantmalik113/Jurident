@@ -49,11 +49,9 @@ function LawyerSignIn() {
                 let eye = document.getElementById('password-eye')
                 let togglepassword=document.getElementById('password')
                 if(togglepassword.type==='password'){
-                  togglepassword.type='text'
                   eye.classList.remove('fa-eye')
                   eye.classList.add('fa-eye-slash')
                 }else{
-                  togglepassword.type='password'
                   eye.classList.add('fa-eye')
                   eye.classList.remove('fa-eye-slash')
                 }
