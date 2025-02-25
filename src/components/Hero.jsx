@@ -20,7 +20,7 @@ window.scrollTo(0,0)
     <section className= 'min-h-screen overflow-hidden flex flex-col bg-[#060223] items-center justify-center hero relative'>
         <img src="../ellipse-top.png" className='absolute rotate-27 right-[-25vw] top-[-20vh] sm:right-[-150px] sm:top-[-200px] z-102' alt="" />
         <img src="../ellipse-bottom.png" className='absolute sm:bottom-[-300px] bottom-[-20vh]' alt="" />
-        <img src="../JURIDENT.png" className='absolute left-5' alt="" />
+        <img src="../JURIDENT.png" className='absolute opacity-0 sm:opacity-[1] left-5' alt="" />
         <div ref={refContainer} className='carousel snap-x snap-mandatory relative items-center mx-20'>
             <div className='Carousel_card snap-center flex flex-col items-center' >
                 <img src="../Jurident-Logo.png" className='sm:w-fit w-[350px] z-101' alt="" />
