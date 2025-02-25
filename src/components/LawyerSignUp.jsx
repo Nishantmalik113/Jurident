@@ -44,19 +44,21 @@ function LawyerSignUp() {
                   <input type="text" placeholder="Username" className="w-full p-3 bg-white text-black rounded-lg focus:outline-none" />
                   <input type="email" placeholder="Email" className="w-full p-3 bg-white text-black rounded-lg focus:outline-none" />
                   <div className="relative">
-                    <input id='password' type="password" placeholder="Password" className="w-full p-3 bg-white text-black rounded-lg focus:outline-none" />
-                    <button onClick={()=>{
-                        let eye = document.getElementById('password-eye')
-                        let togglepassword=document.getElementById('password')
-                        if(togglepassword.type==='password'){
-                          eye.classList.remove('fa-eye')
-                          eye.classList.add('fa-eye-slash')
-                        }else{
-                          eye.classList.add('fa-eye')
-                          eye.classList.remove('fa-eye-slash')
-                        }
-                    }} className="absolute right-4 top-3 text-gray-400 cursor-pointer"><i id='password-eye' className='fa-solid fa-eye'></i></button>
-                  </div>
+                  <input id='password' type="password" placeholder="Password" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
+                  <button type="button" onClick={()=>{
+                    let eye = document.getElementById('password-eye')
+                    let togglepassword=document.getElementById('password')
+                    if(togglepassword.type==='password'){
+                      togglepassword.type='text'
+                      eye.classList.remove('fa-eye')
+                      eye.classList.add('fa-eye-slash')
+                    }else{
+                      togglepassword.type='password'
+                      eye.classList.add('fa-eye')
+                      eye.classList.remove('fa-eye-slash')
+                    }
+                  }} className="absolute right-4 top-3 text-gray-400 cursor-pointer"><i id='password-eye' className='fa-solid fa-eye'></i></button>
+                </div>
                   <div className="flex items-center p-3 bg-white text-black rounded-lg">
                     🇮🇳 <span className="ml-2">+91</span>
                     <input type="tel" placeholder="Phone Number" className="w-full pl-4 focus:outline-none" />

@@ -44,14 +44,16 @@ function LawyerSignIn() {
           <form className="space-y-3">
             <input type="text" placeholder="Username" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
             <div className="relative">
-              <input type="password" placeholder="Password" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
-              <button onClick={()=>{
+              <input id='password' type="password" placeholder="Password" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
+              <button type="button" onClick={()=>{
                 let eye = document.getElementById('password-eye')
                 let togglepassword=document.getElementById('password')
                 if(togglepassword.type==='password'){
+                  togglepassword.type='text'
                   eye.classList.remove('fa-eye')
                   eye.classList.add('fa-eye-slash')
                 }else{
+                  togglepassword.type='password'
                   eye.classList.add('fa-eye')
                   eye.classList.remove('fa-eye-slash')
                 }
