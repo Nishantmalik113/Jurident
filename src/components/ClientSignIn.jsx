@@ -60,7 +60,9 @@ function ClientSignIn() {
                   }} className="absolute right-4 top-3 text-gray-400 cursor-pointer"><i id='password-eye' className='fa-solid fa-eye'></i></button>
                 </div>
                 <div className='flex items-center gap-2 text-sm text-[#C99F4A]'><input type="checkbox" /> Keep Me Logged In</div>
-                <button className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">Sign In</button>
+                <button type='button' className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">
+                  <Link to="../dashboard">Sign In</Link>
+                </button>
               </form>
     
              

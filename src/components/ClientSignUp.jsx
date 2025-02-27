@@ -62,7 +62,9 @@ function ClientSignUp() {
               🇮🇳 <span className="ml-2">+91</span>
               <input type="tel" placeholder="Phone Number" className="w-full pl-4 focus:outline-none" />
             </div>
-            <button className="w-full bg-blue-600 p-3 rounded-lg text-black font-medium hover:bg-blue-700">Sign Up</button>
+            <button type='button' className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">
+            <Link to="../dashboard">Sign Up</Link>
+          </button>
           </form>
 
           <p className="text-center text-gray-400 mt-4">

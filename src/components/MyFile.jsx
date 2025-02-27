@@ -14,12 +14,12 @@ export default function MyFile() {
           <h1 className=' text-xl sm:text-3xl'>My Files</h1>
         </div>
         <div className='z-2'>
-          <input placeholder='search 🔎' className='text-xl text-right w-[100px] sm:w-[150px] border-b-1 border-white'></input>
+          <input placeholder='search 🔎' className='text-xl text-right w-[100px] sm:w-[130px] border-b-1 border-white'></input>
         </div>
       </div>
       <div className='Files mx-10 sm:pt-10 p-5 rounded-[3rem] bg-[rgba(255,255,255,0.2)] flex flex-col items-center gap-5'>
         <div className='sort-filter relative pb-4 w-full'>
-          <div className='flex absolute right-0 gap-5'>
+          <div className='flex absolute right-0 gap-5 px-1'>
             <button><i className='fa-regular fa-bookmark text-blue-500'></i> Bookmarks</button>
             <button><i className='fa-solid fa-filter text-blue-500'></i> Filter</button>
             <button><i className='fa-solid fa-sort text-blue-500'></i> Sort</button>
