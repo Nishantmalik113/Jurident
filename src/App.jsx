@@ -9,6 +9,8 @@ import LawyerSignIn from './components/LawyerSignIn'
 import LawyerSignUp from './components/LawyerSignUp'
 import ClientSignIn from './components/ClientSignIn'
 import ClientSignUp from './components/ClientSignUp'
+import ForgotPassword from './components/ForgotPassword'
+import EmailVerification from './components/EmailVerification'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
         <Route path="/LawyerSignUp" element={<LawyerSignUp />} />
         <Route path="/ClientSignIn" element={<ClientSignIn />} />
         <Route path="/ClientSignUp" element={<ClientSignUp />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
+        <Route path="/EmailVerification" element={<EmailVerification />} /> 
       </Routes>
     </BrowserRouter>
   )

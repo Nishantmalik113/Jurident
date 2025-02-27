@@ -64,7 +64,7 @@ function LawyerSignUp() {
                     <input type="tel" placeholder="Phone Number" className="w-full pl-4 focus:outline-none" />
                   </div>
                   <button type='button' className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">
-                    <Link to="../dashboard">Sign Up</Link>
+                    <Link to="../EmailVerification">Sign Up</Link>
                   </button>
                 </form>
     
