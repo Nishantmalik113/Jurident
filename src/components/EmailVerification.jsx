@@ -13,7 +13,7 @@ export default function EmailVerification() {
             <h2 className="text-5xl font-semibold text-[#C99F4A] text-center">Email Verification</h2>
             <div className='flex flex-col gap-5 max-w-3xs'>
                 <p className="text-center text-gray-300 mt-1 text-sm">Please enter the code you might’ve just recieved on your registered email.</p>
-                <input type="number" placeholder="6 digit code" className="w-full p-3 bg-white text-black rounded-lg focus:outline-none" />
+                <input type="text" placeholder="6 digit code" className="w-full p-3 bg-white text-black rounded-lg focus:outline-none" />
                 <button type='button' className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-semibold hover:bg-blue-700 text-lg">
                     <Link to="../dashboard">Verify</Link>
                 </button>
