@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 import React from 'react'
 import Hero from './components/Hero'
 import MyFile from './components/MyFile'
@@ -11,14 +11,17 @@ import ClientSignIn from './components/ClientSignIn'
 import ClientSignUp from './components/ClientSignUp'
 import ForgotPassword from './components/ForgotPassword'
 import EmailVerification from './components/EmailVerification'
+import Dashboard from './components/Dashboard'
+import { useAuth } from './context/AuthContext'
 
 function App() {
+  const {globalUser} = useAuth()
+
 
   return (
     <BrowserRouter>
-      <Header/>
       <Routes>
-        <Route path="/" element={<Hero />} />
+        <Route path="/" element= {globalUser ? <Dashboard /> : <MyFile />} />
         <Route path="/register" element={<Register />} />
         <Route path="/LawyerSignIn" element={<LawyerSignIn />} />
         <Route path="/LawyerSignUp" element={<LawyerSignUp />} />

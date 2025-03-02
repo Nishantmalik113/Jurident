@@ -1,8 +1,48 @@
-import React from 'react'// Replace with your actual image path
+import React, { useState } from 'react'// Replace with your actual image path
 import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { googleProvider } from '../../firebase';
 
 
 function ClientSignUp() {
+
+  const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const {signup, googleLogin} = useAuth()
+    const [isAuthenticating, setIsAuthenticating] = useState(false)
+  
+    async function handleGoogleSignIn(){
+      try{
+        setIsAuthenticating(true)
+        await googleLogin(googleProvider)
+      }catch(err){
+        console.log(err.message)
+      }finally{
+        setIsAuthenticating(false)
+        window.location.href='/'
+      }
+    }
+  
+    async function handleAuthenticate() {
+      if(!email || !email.includes('@') || !password || password.length<6 || isAuthenticating ){
+        return
+      }
+  
+      try{
+        setIsAuthenticating(true)
+        await signup(email , password)
+      }catch(err){
+        console.log(err.message)
+      }finally{
+        setIsAuthenticating(false)
+        window.location.href='/'
+      }
+  
+  
+      
+    }
+  
+
   return (
     <div className="min-h-screen overflow-hidden py-10 sm:py-0  flex flex-col bg-[#060223] items-center justify-center relative">
     <img src="../ellipse-top.png" className='absolute rotate-27 right-[-25vw] top-[-20vh] sm:right-[-150px] sm:top-[-200px] z-102' alt="" />
@@ -28,7 +68,7 @@ function ClientSignUp() {
           <h3 className="text-lg font-medium text-[#C99F4A] text-center mt-4">Join as Client</h3>
 
           <div className="flex justify-center gap-4 mt-4">
-            <button className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-200 text-black rounded-lg w-36 justify-center">
+            <button onClick={handleGoogleSignIn} className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-200 text-black rounded-lg w-36 justify-center">
               <i className='fa-brands fa-google'></i> Google
             </button>
           </div>
@@ -41,9 +81,9 @@ function ClientSignUp() {
 
           <form className="space-y-4">
             <input type="text" placeholder="Username" className="w-full p-3 bg-white text-black rounded-lg focus:outline-none" />
-            <input type="email" placeholder="Email" className="w-full p-3 bg-white text-black rounded-lg focus:outline-none" />
-            <div className="relative">
-              <input id='password' type="password" placeholder="Password" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
+            <input type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
+              <div className="relative">
+              <input id='password' value={password} type="password" placeholder='Password' onChange={(e)=>{setPassword(e.target.value)}} className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
               <button type="button" onClick={()=>{
                 let eye = document.getElementById('password-eye')
                 let togglepassword=document.getElementById('password')
@@ -62,11 +102,9 @@ function ClientSignUp() {
               🇮🇳 <span className="ml-2">+91</span>
               <input type="tel" placeholder="Phone Number" className="w-full pl-4 focus:outline-none" />
             </div>
-            <Link to="../EmailVerification">
-              <button type='button' className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">
+              <button type='button' onClick={handleAuthenticate} className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">
               Sign Up
               </button>
-            </Link>
           </form>
 
           <p className="text-center text-gray-400 mt-4">

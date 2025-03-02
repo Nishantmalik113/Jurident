@@ -1,7 +1,48 @@
-import React from 'react' // Replace with your actual image path
+import React, { useState } from 'react' // Replace with your actual image path
 import {Link} from "react-router-dom"
+import { useAuth } from '../context/AuthContext'
+import { googleProvider } from '../../firebase'
 
 function ClientSignIn() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const {login, googleLogin} = useAuth()
+  const [isAuthenticating, setIsAuthenticating] = useState(false)
+
+
+  async function handleGoogleSignIn(){
+        try{
+          setIsAuthenticating(true)
+          await googleLogin(googleProvider)
+        }catch(err){
+          console.log(err.message)
+        }finally{
+          setIsAuthenticating(false)
+          window.location.href='/'
+        }
+      }
+
+
+  async function handleAuthenticate() {
+    if(!email || !email.includes('@') || !password || password.length<6 || isAuthenticating ){
+      return
+    }
+
+    try{
+      setIsAuthenticating(true)
+      await login(email , password)
+    }catch(err){
+      console.log(err.message)
+    }finally{
+      setIsAuthenticating(false)
+      window.location.href='/'
+    }
+
+
+    
+  }
+
+
   return (
     <div className="min-h-screen overflow-hidden py-10 sm:py-0  flex flex-col bg-[#060223] items-center justify-center relative">
           <img src="../ellipse-top.png" className='absolute rotate-27 right-[-25vw] top-[-20vh] sm:right-[-150px] sm:top-[-200px] z-102' alt="" />
@@ -28,7 +69,7 @@ function ClientSignIn() {
     
              
               <div className="flex justify-center gap-4 mt-4">
-                <button className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-200 text-black rounded-lg w-36 justify-center">
+                <button onClick={handleGoogleSignIn} className="flex items-center justify-center gap-2 px-4 py-2 bg-gray-200 text-black rounded-lg w-36 justify-center">
                   <i className='fa-brands fa-google'></i> Google
                 </button>
               </div>
@@ -41,10 +82,10 @@ function ClientSignIn() {
               </div>
     
            
-              <form className="space-y-3">
-                <input type="text" placeholder="Username" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
+              <div className="space-y-3">
+                <input type="text" value={email} onChange={(e)=>{setEmail(e.target.value)}} placeholder="Email" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
                 <div className="relative">
-                  <input id='password' type="password" placeholder="Password" className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
+                  <input id='password' value={password} type="password" placeholder='Password' onChange={(e)=>{setPassword(e.target.value)}} className="w-full p-2.5 bg-white text-black rounded-lg focus:outline-none text-sm" />
                   <button type="button" onClick={()=>{
                     let eye = document.getElementById('password-eye')
                     let togglepassword=document.getElementById('password')
@@ -60,12 +101,10 @@ function ClientSignIn() {
                   }} className="absolute right-4 top-3 text-gray-400 cursor-pointer"><i id='password-eye' className='fa-solid fa-eye'></i></button>
                 </div>
                 <div className='flex items-center gap-2 text-sm text-[#C99F4A]'><input type="checkbox" /> Keep Me Logged In</div>
-                <Link to="../dashboard">
-                  <button type='button' className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">
-                    Sign In
+                  <button onClick={handleAuthenticate} className="w-full bg-blue-600 p-2.5 rounded-lg text-white font-medium hover:bg-blue-700 text-sm">
+                    {isAuthenticating ? 'Authenticating...' : 'Sign In' }
                   </button>
-                </Link>
-              </form>
+              </div>
     
              
               <p className="text-center text-[#C99F4A] cursor-pointer mt-3 text-sm">

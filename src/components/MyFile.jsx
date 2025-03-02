@@ -13,8 +13,8 @@ export default function MyFile() {
           <img src="../arrow_back.png" alt="" />
           <h1 className=' text-xl sm:text-3xl'>My Files</h1>
         </div>
-        <div className='z-2'>
-          <input placeholder='search 🔎' className='text-xl text-right w-[100px] sm:w-[130px] border-b-1 border-white'></input>
+        <div className='z-2 flex gap-1 border-b-1 border-white items-end'>
+          <input placeholder='search' className='text-xl text-right w-[100px] sm:w-[130px]  bg-transparent'></input><i className='fa-solid fa-search '></i>
         </div>
       </div>
       <div className='Files mx-10 sm:pt-10 p-5 rounded-[3rem] bg-[rgba(255,255,255,0.2)] flex flex-col items-center gap-5'>

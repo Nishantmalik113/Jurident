@@ -1,7 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Header = () => {
+
+  const {globalUser, logOut} = useAuth()
+
   return (
     <nav className="bg-[rgb(6,2,35)] p-4 navbar w-full">
       <div className="max-w-7xl mx-auto">
@@ -38,14 +42,17 @@ const Header = () => {
 
           {/* Right side: Login/Signup */}
           <div>
-            <NavLink 
+            {globalUser ? (
+              <button onClick={()=>{logOut()}} className='text-xs sm:text-sm  text-[#FFD700]'>
+              Log Out</button>
+            ):(<NavLink 
               to="/register"
               className={({ isActive }) =>
                 `text-xs sm:text-sm ${isActive ? 'text-[#FFD700]' : 'text-[#FFD700]'}`
               }
             >
               Login / Sign Up
-            </NavLink>
+            </NavLink>)}
           </div>
         </div>
       </div>
